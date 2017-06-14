@@ -1063,3 +1063,9 @@ dtb-$(CONFIG_OF_ALL_DTBS) := $(patsubst $(dtstree)/%.dts,%.dtb, $(wildcard $(dts
 
 always		:= $(dtb-y)
 clean-files	:= *.dtb
+
+# Enable fixups to support overlays on BCM2835 platforms
+ifeq ($(CONFIG_ARCH_BCM2835),y)
+	DTC_FLAGS ?= -@ -H epapr
+	dts-dirs += overlays
+endif
