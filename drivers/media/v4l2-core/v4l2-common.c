@@ -405,3 +405,21 @@ void v4l2_get_timestamp(struct timeval *tv)
 	tv->tv_usec = ts.tv_nsec / NSEC_PER_USEC;
 }
 EXPORT_SYMBOL_GPL(v4l2_get_timestamp);
+
+char *v4l2_fourcc2s(u32 fourcc, char *buf)
+{
+	buf[0] = fourcc & 0x7f;
+	buf[1] = (fourcc >> 8) & 0x7f;
+	buf[2] = (fourcc >> 16) & 0x7f;
+	buf[3] = (fourcc >> 24) & 0x7f;
+	if (fourcc & (1 << 31)) {
+		buf[4] = '-';
+		buf[5] = 'B';
+		buf[6] = 'E';
+		buf[7] = '\0';
+	} else {
+		buf[4] = '\0';
+	}
+	return buf;
+}
+EXPORT_SYMBOL_GPL(v4l2_fourcc2s);

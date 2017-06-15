@@ -264,4 +264,7 @@ const struct v4l2_frmsize_discrete *v4l2_find_nearest_format(
 
 void v4l2_get_timestamp(struct timeval *tv);
 
+#define V4L2_FOURCC_MAX_SIZE 8
+char *v4l2_fourcc2s(u32 fourcc, char *buf);
+
 #endif /* V4L2_COMMON_H_ */
