@@ -1461,8 +1461,9 @@ static int tc358743_g_mbus_config(struct v4l2_subdev *sd,
 
 	cfg->type = V4L2_MBUS_CSI2;
 
-	/* Support for non-continuous CSI-2 clock is missing in the driver */
-	cfg->flags = V4L2_MBUS_CSI2_CONTINUOUS_CLOCK;
+	cfg->flags = state->bus.flags &
+			(V4L2_MBUS_CSI2_CONTINUOUS_CLOCK |
+			 V4L2_MBUS_CSI2_NONCONTINUOUS_CLOCK);
 
 	switch (state->csi_lanes_in_use) {
 	case 1:
