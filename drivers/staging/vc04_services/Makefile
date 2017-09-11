@@ -12,6 +12,7 @@ vchiq-objs := \
 
 obj-$(CONFIG_SND_BCM2835)	+= bcm2835-audio/
 obj-$(CONFIG_VIDEO_BCM2835)	+= bcm2835-camera/
+obj-$(CONFIG_BCM_VC_SM)		+= vc-sm/
 
 ccflags-y += -DVCOS_VERIFY_BKPTS=1 -Idrivers/staging/vc04_services -DUSE_VCHIQ_ARM -D__VCCOREVER__=0x04000000
 

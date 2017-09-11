@@ -1,0 +1,8 @@
+config BCM_VC_SM
+	bool "VideoCore Shared Memory"
+	depends on ARCH_BCM2835 || COMPILE_TEST
+	select BCM2835_VCHIQ
+	default n
+	help
+	Support for the VC shared memory on the Broadcom reference
+	design. Uses the VCHIQ stack.

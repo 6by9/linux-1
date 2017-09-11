@@ -35,6 +35,12 @@
 			cache-line-size = <32>;
 			firmware = <&firmware>;
 		};
+
+		vcsm: vcsm {
+			compatible = "raspberrypi,bcm2835-vcsm";
+			firmware = <&firmware>;
+			status = "okay";
+		};
 	};
 };
 
